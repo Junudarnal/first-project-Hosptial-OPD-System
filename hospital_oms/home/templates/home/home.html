@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOSPITAL OPD MANAGEMENT SYSTEM</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" >
+	<style>
+		.middle #section
+			{
+				background-image: url('{% static "img/frontimg.jpg" %}');
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+	</style>
+</head>
+<body>
+    <div>
+		<div class="top">
+			<div>
+			 Contact Us +977 9812345678 | HOMS@hospital.com 
+			</div>
+		</div>
+		
+		<div class="logo">
+			<div>
+				
+				<div class="container-flex">
+				<div class="company-name"> <font color="#428bca"> Out Patient </font><font color="#000">Management System </font></div>
+				<div class="nav-links"> 
+					<a href="#"><p>HOME</p></a>
+					<a href="/home/contactinfo/"><p>CONTACT US</p></a>
+					<a href="/home/about/"><p>ABOUT US</p></a> 
+					<a href="/patient/patient_register/"><p>REGISTER</p></a>  
+				</div>
+
+
+				</div>
+
+
+				
+			</div>
+		</div>
+		
+		<div class="middle">
+			<div id="section">
+			<p>
+				<br> <br>
+				We Care About Your Time and Health <br>
+			</p> 
+			</div>
+		</div>
+		
+		
+		<div class="bottom_up">
+			<div>
+					Login As
+			</div>
+			<div class="col">
+				<a href="{% url 'user_login' %}" class="Ad btn">
+				 Admin
+				</a>
+			
+				<a href="{% url 'doctor_login' %}" class="Doctor btn">
+				 Doctor
+				</a>
+			
+				<!-- <a href="#" class="Receptionist btn">
+				 Receptionist
+				  </a> -->
+				
+				<a href="{% url 'patient_login' %}" class="Patient btn">
+				 Patient
+				</a>
+			
+			  </div>
+		</div>
+		
+		
+		
+		
+		
+		<div class="nav_down">
+			<div>
+			 &copy; Hospital OPD Management System, developed by Junu and Riya
+			</div>
+		</div>
+	</div>
+  
+</body>
+</html>
+	

@@ -1,0 +1,86 @@
+
+{% load static %}
+<!DOCTYPE html>    
+<html>    
+<head>    
+    <title>Add Doctor</title>    
+    <link href="{% static 'css/style2.css' %}" type="text/css" rel="stylesheet">    
+</head>    
+<body>    
+     
+    <div>
+    <div class="top">
+        <div>
+         Contact Us +977 9812345678 | HOMS@hospital.com 
+    </div>
+</div>
+<h2>Add Doctors</h2><br>
+    <div class="Login" style= "width:900px;"> 
+       
+    <form action ="/user/add_doctor/" method="post"> 
+        {% csrf_token %}
+        <div class="form-grid" style="display: grid; grid-template-columnS:1fr 1fr;">
+        <div class="form-element"> 
+        {% comment %} <input type="hidden" name="txtHidden" value="1">  {% endcomment %}
+        <label>Full Name</label>    
+        <input type="text" name="full_name" id="Fname" placeholder="Full Name">
+        </div>    
+        <div class="form-element"><label>Username</label>  
+        <input type="text" name="username" id="username" placeholder="Username">
+        </div>
+
+        <div class="form-grid" style="display: grid; grid-template-columnS:1fr 1fr;">
+        <div class="form-element">     
+        <label>Email</label>    
+        <input type="email" name="email" id="email" placeholder="email"> 
+
+        <div class="form-element">
+        <label>Password</label>    
+        <input type="password" name="password1" id="password1" placeholder="Password">    
+        <label>Confirm Password </label>    
+        <input type="password" name="password2" id="password2" placeholder="Confirm Password"> 
+
+        <div class="form-grid" style="display: grid; grid-template-columnS:1fr 1fr;">
+        <div class="form-element"> 
+        <label>Address</label>    
+        <input type="text" name="address" id="address" placeholder="Address"> 
+        
+        <div class="form-element">
+        <label>Contact Number </label>    
+        <input type="number" name="contact_no" id="contact_no" placeholder="Contact_no"> 
+
+        {% comment %} <div class="form-grid" style="display: grid; grid-template-columnS:1fr 1fr;">
+        <div class="form-element">  {% endcomment %}
+        <label>Gender    
+        </label>    
+        <input type="radio" name="gender" value="male"> Male 
+        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="other"> Other    
+        <br><br> 
+        <div class="form-element">
+        <label>Department    
+        </br>    
+        </label>    
+        <select name="department" id="department" style="width: 300px;height: 30px;border: none;border-radius: 3px;  
+        padding-left: 8px;">
+            <option value="none">Select their Department</option>
+            <option value="Cardiologist">Cardiologist</option>
+            <option value="Dermatologists">Dermatologists</option>
+            <option value="Emergency Medicine Specialists">Emergency Medicine Specialists</option>
+           
+          </select>                
+        <br><br>        
+        <br><br>     
+        <input type="submit" name="log" id="log" value="Add" style="width:100px;height: 30px;border: none;border-radius: 3px;  
+        padding-left: 8px;">       
+        <br><br>    
+    </form>
+    <div>
+        {% for message in messages %}
+        <h3>{{ message }}</h3>
+        {% endfor %}
+    </div>
+</div>     
+</div>    
+</body>    
+</html>    

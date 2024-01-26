@@ -1,0 +1,41 @@
+{% extends 'patient/patientdash.html' %}
+
+
+{% block content %}
+  <br>
+  <div class = "patientstatusheader" style ="width:1000px">
+    Patient | Appointment Status
+</div>
+
+  <br>
+  <table class="table table-light  table-bordered " style="width:auto;">
+    <thead class="bg-danger">
+        <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Date of appointment</th>
+            <th scope="col">Time of appointment</th>
+            <th scope="col">Appointment for</th>
+            <th scope="col">Status</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in appointments %}
+        <tr>
+            <td>{{ t.patient.username }}</td>
+            <td>{{ t.appointment_date }}</td>
+            <td>{{ t.appointment_time }}</td>
+            <td>{{ t.department }}</td>
+            <td>
+              {{ t.status }}
+            </td>
+        </tr>
+
+        
+        {% endfor %} 
+
+    </tbody>
+
+</table>
+  {% endblock content %}
+

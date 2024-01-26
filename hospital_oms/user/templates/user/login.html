@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>    
+<html>    
+<head>    
+    <title>Admin Login Form</title>    
+    <link href="{% static 'css/style2.css' %}" type="text/css" rel="stylesheet">    
+</head>    
+<body>    
+     
+    <div>
+    <div class="top">
+        <div>
+         Contact Us +977 9812345678 | HOMS@hospital.com 
+    </div>
+</div>
+<h2>Admin Login</h2><br>
+<div class="container-center">
+    <div class="login"> 
+       
+    <form action ="/user/login/" method="post"> 
+        {% csrf_token %}
+        <input type="hidden" name="txtHidden" value="1"> 
+        <label><b>UserName   
+        </br>    
+        </label>    
+        <input type="text" name="username" id="Uname" placeholder="Username">    
+        <br><br>    
+        <label><br>Password     
+        </br>    
+        </label>    
+        <input type="Password" name="password" id="Pass" placeholder="Password">    
+        <br><br>    
+        <input type="submit" name="login" id="login" value="Log In" style=" width:250px; height:25px; top:0; left: 0; 
+        position relative; z-index:1; border: none; border-radius: 10px; ">       
+        <br><br>    
+    </form>
+    <div>
+        {% for message in messages %}
+        <h3>{{ message }}</h3>
+        {% endfor %}
+    </div>
+</div>     
+</div>    
+</body>    
+</html>    

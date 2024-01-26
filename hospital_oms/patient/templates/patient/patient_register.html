@@ -1,0 +1,87 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link href="{% static 'css/style2.css' %}" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <div>
+		<div class="top">
+			<div>
+			 Contact Us +977 9812345678 | HOMS@hospital.com 
+			</div>
+		</div>
+        <h2>Registration for Patient</h2><br>
+        <div class = "Login" style= "width:900px;">
+    <form action = '/patient/patient_register/' method="POST">
+        {% csrf_token %}
+        {% comment %} <input type="hidden" name="txtHidden" value="1"> {% endcomment %}
+        <div class="form-grid" style="display: grid; grid-template-columnS:1fr 1fr;">
+        <div class="form-element">
+            <label>First Name</label>    
+        <input type="text" name="Fname" id="Fname" placeholder="First name">    
+        </div>
+        
+        <div class="form-element"><label>Last Name</label>    
+            <input type="text" name="Lname" id="Lname" placeholder="Last name" >    
+            <br><br>
+        </div>  
+       
+
+        <div class="form-grid" style="display: grid; grid-template-columnS:1fr 1fr;">
+        <div class="form-element"><label>User Name</label>    
+        <input type="text" name="Uname" id="Uname" placeholder="Username">    
+    </div>
+    </div>
+        <div class="form-element"><label>Email Address</label>    
+        <input type="text" name="Email" id="Email" placeholder="Email Address">    
+        <br><br>  
+        </div>
+        <div class="form-grid" style="display: grid; grid-template-columnS:1fr 1fr;">
+        <div class="form-element"><label>Password</label>    
+        <input type="Password" name="Pass" id="Pass" placeholder="Password"  >    
+    </div>
+</div>
+        
+        <div class="form-element"><label>Confirm Password</label>    
+            <input type="Password" name="Pass" id="Pass" placeholder="Confirm Password" >    
+            <br><br>
+        </div>
+        <div class="form-grid" style="display: grid; grid-template-columnS:1fr 1fr;">
+        <div class="form-element"><label>Contact Number    
+        </br>    
+        </label>    
+        <input type="number" name="number" id="Pass" placeholder="Contact Number">    
+        <br><br>
+        </div>
+    </div>
+    <div class="form-grid" style="display: grid; grid-template-columnS:1fr 1fr;">
+        <div class="form-element"><label>Address<br></label>    
+        <input type="text" name="address" id="address" placeholder="Address">    
+        <br><br>
+        </div>
+    </div>
+        <div class="form-grid" style="display: grid; grid-template-columnS:1fr 1fr;">
+        <div class="form-element"><label>Gender     
+        </br>    
+        </label>    
+        <input type="radio" name="gender" value="male"> Male 
+        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="other"> Other    
+        <br><br> 
+    
+ 
+        <input type="submit" name="login" id="login" value="Register" style=" width:250px; height:25px; top:0; left: 0; 
+        position relative; z-index:1; border: none; border-radius: 10px;  -ms-transform:translate(120%, 120%); transform: translate(120%, 120%);">       
+        <br><br>    
+    </div>   
+</div>   
+    </form>
+    {% comment %} <sub><a href="{% url 'patient_login' %}"> Login to your Account</a></sub> {% endcomment %}
+</body>
+</html>

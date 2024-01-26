@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOSPITAL OPD MANAGEMENT SYSTEM</title>
+  {% block css %}
+  <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet">
+  <style>
+		{% comment %} .middle #section
+			{
+				background-image: url('{% static "img/patientdash.jpg" %}');
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+	</style> {% endcomment %}
+  {% endblock css %}
+
+
+</head>
+<body>
+  <div>
+		<div class="top" style= "width:100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    height: 50px;
+    background-color:#2FA5EB !important;
+    border-bottom:2px solid #f0f0f0;">
+			<div>
+			 Contact Us +977 9812345678 | HOMS@hospital.com 
+			</div>
+		</div>
+        <div class="sidebar">
+            <div class="logo-details">
+              <i class='bx bxl-c-plus-plus'></i>
+              <span class="logo_name">HOMS</span>
+            </div>
+              <ul class="nav-links">
+                <li>
+                  <a href="{% url 'patient_dashboard' %}">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Dashboard</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'book_appointment' %}" >
+                    <i class='bx bx-box' ></i>
+                    <span class="links_name">Book Appointment</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'appointment_status' %}">
+                    <i class='bx bx-list-ul' ></i>
+                    <span class="links_name">Appointment Status</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'patient_medical_history' %}">
+                    <i class='bx bx-pie-chart-alt-2' ></i>
+                    <span class="links_name">Medical History</span>
+                  </a>
+                </li>
+                <li>
+                </div>
+                    <div class="middle2-patient">
+
+                        {% block content %}
+                           
+                        {% endblock content %}
+                           
+                    </div>
+
+                    {% comment %} <div style="display: flex; flex-direction:row-reverse; padding-right: 10px;" class="logoutsection">
+                      <a style="width: auto;" class="btn btn-danger" href="{% url 'logout' %} ">Log Out</a></li>
+                    </div>  {% endcomment %}
+
+                <script>
+                    let atag = document.getElementsByTagName("a");
+                    atag.addEventListener("click",()=>{
+                        window.alert("clicked");
+                        atag.class = "active";
+                    })
+                </script>
+</body>
+</html>

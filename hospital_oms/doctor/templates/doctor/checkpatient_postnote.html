@@ -1,0 +1,61 @@
+{% extends 'doctor/doctordash.html' %}
+
+{% block content %}
+<div class ="doctorstatusheader" style="width:1000px;">
+    DOCTOR | Patient Status | Checked Patients
+</div>
+<hr>      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+        <table class="table table-light table-hover table-bordered table-striped" style= "font-size:15px;width:1000px;">
+            <thead class="bg-danger">
+                <tr>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Date of appointment</th>
+                    <th scope="col">Time of appointment</th>
+                    <th scope="col">Appointment for</th>
+                    {% comment %} <th scope="col">Medical Report</th> {% endcomment %}
+                    <th scope="col">Gender</th>
+                    <th scope="col">Prescriptions</th>
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for t in appointments %}
+                {% if t.status == "Checked" %}
+                <tr>
+                    {% comment "" %} <!-- {% with t.patient.first_name|add:' '|add:t.patient.last_name as name %}
+                            <h1>{{ name }}</h1>
+                        {% endwith %} -->{% endcomment %}
+                    <td>{{ t.patient.first_name|add:' '|add:t.patient.last_name }}</td>
+                    <td>{{ t.patient.email}}</td>
+                    <td>{{ t.patient.username }}</td>
+                    <td>{{ t.appointment_date }}</td>
+                    <td>{{ t.appointment_time }}</td>
+                    <td>{{ t.department }}</td>
+                    {% comment %} <td><img src="{{ t.medical_report.profiles.url }}" alt="" height="40" width="40"></td> {% endcomment %}
+                    <td>{{ t.gender }}</td>
+                    <td>
+                        
+                        <form action="/doctor/post_prescription/{{t.id}}/" method="POST" enctype= "multipart/form-data">
+                            {% csrf_token %}
+                            <input type="file" name="Prescription" style = "width:auto;">
+                            <button type="submit" name="submit" class="btn btn-sm" style = "width:auto;">Post</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endif %}
+
+                
+                {% endfor %} 
+
+            </tbody>
+        
+        </table>
+
+        <br><br>
+        {% comment %} <sub><a href="{% url 'appoint_history' %}">History </a></sub> {% endcomment %}
+
+{% endblock content %}

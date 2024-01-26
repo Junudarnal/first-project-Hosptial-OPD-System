@@ -1,0 +1,41 @@
+{% extends 'user/admindash.html' %}
+
+{% block content %}
+<div class = "adminpatientheader" style = "width:1000px">
+    ADMIN | Patient List
+</div>
+    <hr>
+        <table class="table table-light table-hover table-bordered table-striped" style="width:1000px;">
+            <thead class="bg-danger">
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Username</th>
+                    <!-- <th scope="col">Contact Number</th> -->
+                    <th scope="col">Address</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Actions</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for t in patients %}
+                <tr>
+                    <td>{{ t.first_name }}</td>
+                    <td>{{ t.last_name }}</td>
+                    <td>{{ t.email }}</td>
+                    <td>{{ t.username }}</td>
+                    <td>{{ t.address }}</td>
+                    <td>{{ t.gender }}</td>
+                    <td>
+                        <a href ="{% url 'delete_patient' t.id %}"><button class="btn btn-danger" type="submit" style = "width:auto;">Delete</button></a>
+                    </td>
+                </tr>
+                {% endfor %} 
+
+            </tbody>
+        
+        </table>
+
+{% endblock content %}

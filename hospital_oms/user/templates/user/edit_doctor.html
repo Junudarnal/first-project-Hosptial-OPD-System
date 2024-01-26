@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>    
+<html>    
+<head>    
+    <title>Edit Doctor</title>    
+    <link href="{% static 'css/style2.css' %}" type="text/css" rel="stylesheet">    
+</head>    
+<body>    
+     
+    <div>
+    <div class="top">
+        <div>
+         Contact Us +977 9812345678 | HOMS@hospital.com 
+    </div>
+</div>
+<div class="center">
+<div class = "topicheader" style="width:1000px;">
+    ADMIN | Edit Doctor
+</div>
+
+    <div class="login"> 
+       
+    <form action ="/user/add_doctor/" method="post"> 
+        {% csrf_token %}
+        <input type="hidden" name="txtHidden" value="1"> 
+        <label><b>Full Name   
+        </br>    
+        </label>    
+        <input type="text" name="full_name" id="Fname" placeholder="Full Name">    
+        <br><br>    
+        <label><br>Contact Number     
+        </br>    
+        </label>    
+        <input type="number" name="contact_no" id="Fname" placeholder="Contact_no">    
+        <br><br>
+        <label><br>Email     
+        </br>    
+        </label>    
+        <input type="email" name="email" id="email" placeholder="email">    
+        <br><br>
+        <label><br>Username   
+        </br>    
+        </label>    
+        <input type="text" name="username" id="username" placeholder="Username">    
+        <br><br> 
+        <label><br>Password    
+        </br>    
+        </label>    
+        <input type="password" name="password1" id="Fname" placeholder="Password">    
+        <br><br>
+        <label><br>Confirm Password    
+        </br>    
+        </label>    
+        <input type="password" name="password2" id="Fname" placeholder="Confirm Password">    
+        <br><br>
+        <label><br>Address   
+        </br>    
+        </label>    
+        <input type="text" name="address" id="address" placeholder="Address">    
+        <br><br>
+        <label><b>Gender     
+        </br>    
+        </label>    
+        <input type="radio" name="gender" value="male"> Male 
+        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="other"> Other    
+        <br><br> 
+        <label><b>Department    
+        </br>    
+        </label>    
+        <select name="department" id="Fname">
+            <option value="none">Select their Department</option>
+            <option value="Cardiologist">Cardiologist</option>
+            <option value="Dermatologists">Dermatologists</option>
+            <option value="Emergency Medicine Specialists">Emergency Medicine Specialists</option>
+           
+          </select>                
+        <br><br>        
+        <br><br>     
+
+<button class="btn" type="submit">Edit</button>    
+    </form>
+    <div>
+    </div>
+        {% for message in messages %}
+        <h3>{{ message }}</h3>
+        {% endfor %}
+    </div>
+</div>     
+</div>    
+</body>    
+</html>    

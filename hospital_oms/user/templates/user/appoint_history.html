@@ -1,0 +1,54 @@
+{% extends 'user/admindash.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="adminappointheader" style="width:1000px;">
+    ADMIN | Appointment History
+</div>
+    
+        <table class="table table-light table-hover table-bordered table-striped" style="width:auto;">
+            <thead class="bg-danger">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Date of appointment</th>
+                    <th scope="col">Time of appointment</th>
+                    <th scope="col">Appointment for</th>
+                    <th scope="col">Medical Report</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Status</th>
+                
+                </tr>
+            </thead>
+            <tbody>
+                {% for t in appointments %}
+                <tr>
+                    <td>
+                        {% with t.patient.first_name|add:' '|add:t.patient.last_name as name %}
+                                {{ name }}
+                        {% endwith %}
+                    </td>
+                    <td>{{ t.patient.email}}</td>
+                    <td>{{ t.patient.username }}</td>
+                    <td>{{ t.appointment_date }}</td>
+                    <td>{{ t.appointment_time }}</td>
+                    <td>{{ t.department }}</td>
+                    <td><img src="{{ t.medical_report.url }}" alt="" height="40" width="40"></td>
+                    <td>{{ t.address }}</td>
+                    <td>{{ t.gender }}</td>
+                    <td>{{ t.status }}</td>
+                
+                </tr>
+
+                
+                {% endfor %} 
+
+            </tbody>
+        
+        </table>
+
+    
+
+{% endblock content %}

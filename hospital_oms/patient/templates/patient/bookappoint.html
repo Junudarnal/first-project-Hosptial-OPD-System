@@ -1,0 +1,149 @@
+{% extends 'patient/patientdash.html' %}
+{% load static %}
+{% block css %}
+
+<link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet">
+<link href="{% static 'css/style2.css' %}" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+{% endblock css %}
+{% block content %}
+<div class ="patientappointheader" style="width:1000px;">
+  PATIENT | Book An Appointment 
+</div>
+<hr>   
+<div style="width:1000px;">
+  <form action = '/patient/book_appointment/' method="POST" enctype= "multipart/form-data">
+      {% csrf_token %}
+      
+      {% comment %} <input type="hidden" name="txtHidden" value="1"> {% endcomment %}
+     <div >
+      <div class="form-element"><label><b>Appointment Date</b>
+          
+      </label>    
+      <input class="input-appointement" type="date" name="appointment_date"  placeholder="Enter a date">    
+    </div>
+      <div class="form-element"><label><b>Time</b>    
+          
+      </label>    
+      <input class="input-appointement" type="time" name="appointment_time"  placeholder="Enter a time" > 
+    </div>
+     </div>
+      <div class="form-element"><label><b>Medical Report</b>    
+        
+      </label>    </div>
+      <input type="file" name="medical_report" style="width:auto;" >
+      <br><br>
+      <div class="form-element">
+      <label><b>Department </b>   
+      </label>    
+      <select id="department" name="department">
+          <option value="none">Select Your Department</option>
+          <option value="Cardiologist">Cardiologist</option>
+          <option value="Dermatologists">Dermatologists</option>
+          <option value="Emergency Medicine Specialists">Emergency Medicine Specialists</option>
+        </select>
+        <br><br> <p id="pricesection"></p>
+      </div>
+      
+        <button type="submit" class="btn-halka-light">Book An Appointment</button>
+    </form>
+    <script>
+      let dpt = document.getElementById('department');
+      dpt.addEventListener('click',()=>{
+        let department = document.getElementById('department').value;
+        let ps = document.getElementById('pricesection');
+        if (department == "Cardiologist")
+        {
+          ps.innerHTML = "You'll be charged 2000 as consultation fee.";
+        }
+        else if(department == "Dermatologists")
+        {
+          ps.innerHTML = "You'll be charged 1500 as consultation fee.";
+        }
+        else if(department=="Emergency Medicine Specialists")
+        {
+          ps.innerHTML = "You'll be charged 1000 as consultation fee.";
+        }
+      })
+    </script>
+  </div> 
+
+{% endblock content %}
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOSPITAL OPD MANAGEMENT SYSTEM</title>
+  <link href="{% static 'css/style2.css' %}" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+		<div class="top">
+			<div>
+			 Contact Us +977 9812345678 | HOMS@hospital.com 
+			</div>
+		</div>
+        <div class = "Book-Appointment">
+            <form action = '/patient/book_appointment/' method="POST" enctype= "multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden" name="txtHidden" value="1">
+                <!-- <label><b>First Name     
+                </br>    
+                </label>    
+                <input type="text" name="Fname" id="Fname" placeholder="First name">    
+                <br><br> 
+                <label><b>Last Name     
+                </br>    
+                </label>    
+                <input type="text" name="Lname" id="Lname" placeholder="Last name">    
+                <br><br>  
+                <label><b>Email Address     
+                </br>    
+                </label>    
+                <input type="text" name="Email" id="Email" placeholder="Email Address">    
+                <br><br>     
+                <label><b>Gender     
+                </br>    
+                </label>    
+                <input type="radio" name="gender" value="male"> Male 
+                <input type="radio" name="gender" value="female"> Female
+                <input type="radio" name="gender" value="other"> Other     -->
+                <br><br> 
+                <label><b>Date for Appointment    
+                </br>    
+                </label>    
+                <input type="date" name="appointment_date" id="date" placeholder="Enter a date">    
+                <br><br>
+                <label><b>Time    
+                </br>    
+                </label>    
+                <input type="time" name="appointment_time" id="time" placeholder="Enter a time">    
+                <br><br> 
+                <label><b>Medical Report    
+                </br>    
+                </label>    
+                <input type="file" name="medical_report" id="report" >    
+                <br><br> 
+                <label><b>Department    
+                </br>    
+                </label>    
+                <select name="department" id="department">
+                    <option value="none">Select Your Department</option>
+                    <option value="Cardiologist">Cardiologist</option>
+                    <option value="Dermatologists">Dermatologists</option>
+                    <option value="Emergency Medicine Specialists">Emergency Medicine Specialists</option>
+                   
+                  </select>                
+                <br><br>        
+                <input type="submit" name="log" id="log" value="Book An Appointment">       
+                <br><br>    
+              </form>
+            </div>   
+</body>
+</html> {% endcomment %}

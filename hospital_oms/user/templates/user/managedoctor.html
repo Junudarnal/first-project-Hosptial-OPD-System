@@ -1,0 +1,60 @@
+{% extends 'user/admindash.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div class="admindoctorheader" ">
+    ADMIN | Doctor List
+    <hr/>
+    <sub><a href="{% url 'add_doctor' %}">Add Doctor</a></sub>
+</div>
+    <br><br>
+    <table class="table table-light table-hover table-bordered table-striped" style="width:auto;">
+        <thead class="bg-danger">
+            <tr>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Username</th>
+                <th scope="col">Department</th>
+                <th scope="col">Contact Number</th>
+                <th scope="col">Address</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Actions</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in Doctors %}
+            <tr>
+                <td>{{ t.user.first_name }}</td>
+                <td>{{ t.user.email }}</td>
+                <td>{{ t.user.username }}</td>
+                <td>{{ t.department }}</td>
+                <td>{{ t.contact_no }}</td>
+                <td>{{ t.address }}</td>
+                <td>{{ t.user.gender }}</td>
+               
+                <td>
+                    {% comment %} <a href ="{% url 'edit_doctor' t.id %}"><button class="btn btn-danger" type="submit" style = "width:auto;">Edit</button></a> {% endcomment %}
+                    <a href ="{% url 'delete_doctor' t.id %}"><button class="btn btn-danger" type="submit" style = "width:auto;">Delete</button></a>
+
+                </td>
+            
+                {% comment %} {% if t.status == 'Approved' %}
+                <td><span class="label warning"> Approved</span></td>
+                
+                {% elif t.status == 'Rejected' %}
+                <td><span class="label success">Rejected</span></td>
+                {% else %}
+                <td><span style="color: white;margin-left: 0px;" class="label dark">Pending</span></td>
+                {% endif %} 
+                 {% endcomment %}
+                 
+            </tr>
+            
+            {% endfor %} 
+
+        </tbody>
+    </table><br><br>
+
+{% endblock content %}

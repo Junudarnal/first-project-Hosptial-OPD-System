@@ -1,0 +1,237 @@
+*{
+	margin:auto;
+	padding:auto;
+    box-sizing: border-box;
+}
+
+/* .top{
+	width:100%;
+	background-color:#2FA5EB !important;
+	border-bottom:2px solid #f0f0f0;
+} */
+
+
+.top div{
+	width:100%;
+	color:#fff;
+	background-color:#2FA5EB !important;
+	font-family:calibri;
+	padding:10px;
+	text-align:right;
+}
+
+
+
+body  
+{  
+    margin: 0;  
+    padding: 0;  
+    background-color:#f4f8faba;  
+    font-family: 'Arial';  
+}  
+.container-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login{  
+        margin: auto;  
+        margin: 20 0 0 450px;  
+        padding: 80px;  
+        background: #6abadeba;  
+        border-radius: 15px ;  
+          
+}  
+.Login{  
+    width: 500px;  
+    overflow: hidden;  
+    margin: auto;  
+    margin: 20 50 0 450px;  
+    padding: 80px;  
+    background: #6abadeba;  
+    border-radius: 15px ;  
+      
+} 
+/* .Book-Appointment{  
+    width: 800px;  
+    overflow: hidden;  
+    margin: auto;  
+    margin: 20 50 0 450px;  
+    padding: 80px;  
+    background: #6abadeba;  
+    border-radius: 15px ;  
+      
+}    */
+h2{  
+    text-align: center;  
+    color: #277582;  
+    padding: 20px;  
+}  
+label{  
+    color:black;  
+    font-size: 17px;  
+} 
+#Fname{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}  
+#Lname{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}   
+#Uname{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}
+#username{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+} 
+#full_name{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}   
+#Email{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}   
+  
+#email{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}   
+#Pass{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+} 
+#address{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+} 
+#password1{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+} 
+#password2{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+} 
+
+#gender{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}  
+#contact_no{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}  
+#date{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+} 
+#time{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding:0 22px; 
+    left:417px;
+    top:-80px;
+    position: relative; 
+      
+} 
+
+#fee{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}       
+
+/* #login{  
+    width: 250px;  
+    height: fit-content;
+    font-size:20px;
+    overflow: hidden;  
+    margin: auto;  
+    margin: 20 0 0 450px;    
+    background: #6abadeba;  
+      
+ }  */
+span{  
+    color: white;  
+    font-size: 17px;  
+}  
+a{  
+    float: right;  
+    background-color: grey;  
+}  
+
+
+.grid-2 {
+	width: 100%;
+	display: flex;
+	/* grid-template-columns: 1fr 1fr; */
+	gap:1rem;
+}
+.center {
+	margin: 2rem auto;
+	width: 60%;
+	display: grid;
+justify-content: center;
+}
